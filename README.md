@@ -1,4 +1,7 @@
-Makes it easy to bind asynchronous function calls. For example:
+Makes it easy to bind asynchronous function calls.
+
+
+## Example
 
 ```javascript
 
