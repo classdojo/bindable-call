@@ -1,0 +1,21 @@
+{
+  "name": "bindable-request",
+  "version": "0.0.0",
+  "description": "Makes it easy to bind asynchronous function calls.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/classdojo/bindable-request.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "1fa15c89cf3a74201df01e71ca8502678fb1b833",
+  "devDependencies": {
+    "expect.js": "~0.2.0",
+    "mocha": "~1.13.0"
+  }
+}
