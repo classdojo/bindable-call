@@ -5,29 +5,29 @@ Makes it easy to bind asynchronous function calls.
 
 ```javascript
 
-var bindableRequest = require("bindable-request"),
+var bindableCall = require("bindable-call"),
 username = "user",
 password = "password";
 
-var loginRequest = bindableRequest(function(next) {
+var loginCall = bindableCall(function(next) {
   login(username, password, next);
 });
 
 
 
-loginRequest.bind("loading").once().to(function(loading) {
+loginCall.bind("loading").once().to(function(loading) {
   
 }).now();
 
-loginRequest.bind("error").once().to(function(error) {
+loginCall.bind("error").once().to(function(error) {
   console.log(error.message);
 }).now();
 
-loginRequest.bind("data").once().to(function(data) {
+loginCall.bind("data").once().to(function(data) {
   console.log(data);
 }).now();
 
-loginRequest.bind("response").once().to(function(response) {
+loginCall.bind("response").once().to(function(response) {
   console.log(response.error, response.data);
 }).now();
 ```
@@ -50,15 +50,15 @@ class LoginView extends mojo.View
   ###
   
   bindings:
-    "loginRequest.loading" : "loading"
-    "loginRequest.error"   : "error"
+    "loginCall.loading" : "loading"
+    "loginCall.error"   : "error"
   
   ###
   ###
   
   login: () ->
   
-    @set "loginRequest", bindableRequest (next) =>
+    @set "loginCall", bindableCall (next) =>
       mediator.execute "login", {
         username: @get("username"),
         password: @get("password")
