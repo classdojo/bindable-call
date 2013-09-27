@@ -1,6 +1,6 @@
 {
-  "name": "bindable-request",
-  "version": "0.0.0",
+  "name": "bindable-call",
+  "version": "0.0.1",
   "description": "Makes it easy to bind asynchronous function calls.",
   "main": "./lib/index.js",
   "scripts": {

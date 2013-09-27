@@ -1,6 +1,6 @@
 bindable = require "bindable"
 
-class BindableRequest extends bindable.Object
+class BindableCall extends bindable.Object
   
   ###
   ###
@@ -11,7 +11,7 @@ class BindableRequest extends bindable.Object
   ###
   ###
 
-  load: () ->
+  load: () =>
     @set "loading", true
     @_fn.call @, @_onResult
 
@@ -21,9 +21,8 @@ class BindableRequest extends bindable.Object
   _onResult: (err, data) =>
     @set "loading", false
     @set "error", err
-
-    if not error or data?
-      @set "data", data ? true
+    @set "success", !err
+    @set "data", data ? true
 
     @set "response", {
       error: err,
@@ -31,10 +30,13 @@ class BindableRequest extends bindable.Object
     }
 
 
-module.exports = (context = {}, fn = () ->) ->
+module.exports = (context = {}, fn) ->
 
   if arguments.length is 1
-    context = fn
+    fn = context
+    context = {}
 
-  return new BindableRequest(fn).load()
+  call = new BindableCall context, fn
+  call.load()
+  call
 
