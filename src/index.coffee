@@ -22,7 +22,8 @@ class BindableCall extends bindable.Object
     @set "loading", false
     @set "error", err
     @set "success", !err
-    @set "data", data ? true
+    @set "data", data
+    @set "result", data
 
     @set "response", {
       error: err,
