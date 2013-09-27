@@ -38,6 +38,6 @@ module.exports = (context = {}, fn) ->
     context = {}
 
   call = new BindableCall context, fn
-  call.load()
+  setTimeout call.load, 0
   call
 
