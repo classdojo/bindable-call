@@ -33,12 +33,14 @@ class BindableCall extends bindable.Object
 
 module.exports = (context = {}, fn) ->
 
-  args = Array.prototype.slice(2)
+  args = Array.prototype.slice.call(arguments, 2)
 
   if arguments.length is 1
     args.shift()
     fn = context
     context = @
+
+
 
   call = new BindableCall context, fn, args
   setTimeout call.load, 0
