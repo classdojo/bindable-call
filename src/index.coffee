@@ -5,15 +5,15 @@ class BindableCall extends bindable.Object
   ###
   ###
 
-  constructor: (context, @_fn) ->
-    super context
+  constructor: (@_context, @_fn, @_args) ->
+    super()
 
   ###
   ###
 
   load: () =>
     @set "loading", true
-    @_fn.call @, @_onResult
+    @_fn.apply @, @_args.concat(@_onResult)
 
   ###
   ###
@@ -33,11 +33,14 @@ class BindableCall extends bindable.Object
 
 module.exports = (context = {}, fn) ->
 
-  if arguments.length is 1
-    fn = context
-    context = {}
+  args = Array.prototype.slice(2)
 
-  call = new BindableCall context, fn
+  if arguments.length is 1
+    args.shift()
+    fn = context
+    context = @
+
+  call = new BindableCall context, fn, args
   setTimeout call.load, 0
   call
 
