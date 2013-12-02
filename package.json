@@ -20,8 +20,8 @@
     "mocha": "~1.13.0"
   },
   "dependencies": {
-    "bindable": "~0.4.10",
-    "protoclass": "0.0.2",
+    "bindable": "0.4.x",
+    "protoclass": "0.0.x",
     "underscore": "~1.5.2"
   }
 }
