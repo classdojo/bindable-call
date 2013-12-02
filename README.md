@@ -1,6 +1,7 @@
 Makes it easy to bind asynchronous function calls.
 
 
+
 ## Example
 
 ```javascript
