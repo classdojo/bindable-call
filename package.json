@@ -4,12 +4,13 @@
   "description": "Makes it easy to bind asynchronous function calls.",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+	"test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/classdojo/bindable-request.git"
   },
+  "keywords": ["mojo-plugin", "utility"],
   "author": "",
   "license": "BSD",
   "readmeFilename": "README.md",
@@ -19,8 +20,8 @@
     "mocha": "~1.13.0"
   },
   "dependencies": {
-    "bindable": "~0.4.10",
-    "protoclass": "0.0.2",
+    "bindable": "0.4.x",
+    "protoclass": "0.0.x",
     "underscore": "~1.5.2"
   }
 }

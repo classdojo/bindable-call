@@ -1,4 +1,5 @@
-Makes it easy to bind asynchronous function calls.
+Makes it easy to bind asynchronous function calls. [![Alt ci](https://travis-ci.org/classdojo/bindable-call.png)](https://travis-ci.org/classdojo/bindable-call)
+
 
 
 ## Example
