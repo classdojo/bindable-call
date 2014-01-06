@@ -1,6 +1,6 @@
 {
   "name": "bindable-call",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Makes it easy to bind asynchronous function calls.",
   "main": "./lib/index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "mocha": "~1.13.0"
   },
   "dependencies": {
-    "bindable": "0.4.x",
+    "bindable": "0.5.x",
     "protoclass": "0.0.x",
     "underscore": "~1.5.2"
   }

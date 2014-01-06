@@ -21,13 +21,13 @@ describe("bindable-call#", function() {
       login("user", "pass", next);
     });
 
-    call.bind("loading").once().to(function(value) {
+    call.bind("loading", { max: 1, to: function(value) {
       expect(value).to.be(true);
-      call.bind("loading").once().to(function(value) {
+      call.bind("loading", { max: 1, to: function(value) {
         expect(value).to.be(true);
         next();
-      }).now()
-    }).now();
+      }}).now()
+    }}).now();
   });
 
   it('can bind to the error property', function(next) {
@@ -36,10 +36,10 @@ describe("bindable-call#", function() {
       login("userab", "pass", next);
     });
 
-    call.bind("error").once().to(function(err) {
+    call.bind("error", { to: function(err) {
       expect(err.message).to.be("unauthorized");
       next();
-    }).now();
+    }}).now();
   });
 
   it("can bind to the data property", function(next) {
@@ -48,11 +48,11 @@ describe("bindable-call#", function() {
       login("user", "pass", next);
     });
 
-    call.bind("data").once().to(function(data) {
+    call.bind("data", { max: 1, to: function(data) {
       expect(data.user).to.be("user");
       expect(data.pass).to.be("pass");
       next();
-    }).now();
+    }}).now();
   });
 
   it("can bind to the response property", function(next) {
@@ -61,11 +61,11 @@ describe("bindable-call#", function() {
       login("user", "pass", next);
     });
 
-    call.bind("response").once().to(function(response) {
+    call.bind("response", { max: 1, to: function(response) {
       expect(response.data.user).to.be("user");
       expect(response.data.pass).to.be("pass");
       next();
-    }).now();
+    }}).now();
   });
 
   it("can bind to the success property", function(next) {
@@ -76,13 +76,13 @@ describe("bindable-call#", function() {
       login("user2", "pass", next);
     })
 
-    call.bind("success").once().to(function(value) {
+    call.bind("success", { max: 1, to: function(value) {
       expect(value).to.be(true);
-      call2.bind("success").once().to(function(value) {
+      call2.bind("success", { max: 1, to: function(value) {
         expect(value).to.be(false);
         next();
-      })
-    })
+      }});
+    }});
 
   });
 });
