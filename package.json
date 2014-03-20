@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "bindable": "0.5.x",
-    "protoclass": "0.0.x",
-    "underscore": "~1.5.2"
+    "protoclass": "0.0.x"
   }
 }
