@@ -84,4 +84,13 @@ describe("bindable-call#", function() {
       }});
     }});
   });
+
+  it("can pass args in the second param", function (next) {
+    bindableCall(function (value, complete) {
+      expect(value).to.be("abba");
+      complete();
+    }, "abba").bind("success", { max: 1, to: function () {
+      next()
+    }}).now();
+  })
 });
