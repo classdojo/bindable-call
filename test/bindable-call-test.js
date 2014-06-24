@@ -83,6 +83,5 @@ describe("bindable-call#", function() {
         next();
       }});
     }});
-
   });
 });
